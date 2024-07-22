@@ -1,0 +1,375 @@
+body {
+    background-color: #f4f4f4; /* Light grey background for the app */
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+.header {
+    text-align: center;
+    padding: 1rem;
+    background-color: #007bff; /* Header background color */
+    color: #fff; /* Header text color */
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #fff;
+    margin: 0;
+}
+
+h2 {
+    font-size: 2em;
+    color: #007bff; /* Color for headings */
+    margin-bottom: 1.5rem;
+}
+
+h3 {
+    font-size: 1.75em;
+    color: #343a40;
+}
+
+h4 {
+    font-size: 1.5em;
+    color: #007bff;
+}
+
+p {
+    font-size: 1em;
+    line-height: 1.6;
+    color: #495057; /* Darker text color for paragraphs */
+}
+
+a {
+    text-decoration: none;
+    color: #007bff; /* Link color */
+}
+
+a:hover {
+    text-decoration: none;
+    color: #0056b3; /* Darker link color on hover */
+}
+
+.nav {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+    padding: 0.5rem 1rem;
+}
+
+.nav .nav-link {
+    color: #495057;
+    font-size: 1.1em;
+}
+
+.nav .nav-link:hover {
+    color: #0056b3; /* Darker color for hover */
+}
+
+form {
+    background-color: #ffffff; /* Form background color */
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.btn {
+    font-size: 1em;
+    padding: 0.5em 1.5em;
+    border-radius: 0.25rem;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border: none;
+    color: #fff;
+}
+
+.btn-success:hover {
+    background-color: #1e7e34;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border: none;
+    color: #fff;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    border: none;
+    color: #212529;
+}
+
+.btn-warning:hover {
+    background-color: #e0a800;
+}
+
+.card {
+    border: none;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease-in-out;
+    background-color: #ffffff;
+}
+
+.card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+    padding: 1rem;
+}
+
+.card-title {
+    font-size: 1.25em;
+    color: #343a40;
+}
+
+.card-text {
+    margin-bottom: 0.5rem;
+}
+
+.alert {
+    margin-top: 1rem;
+    border-radius: 0.25rem;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.alert-warning {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.auth-form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 1.5rem;
+    background-color: #ffffff;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.auth-form h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #007bff;
+}
+
+.auth-form p {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.all-listings {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.listing-container {
+    flex: 1 1 calc(33.333% - 1rem);
+    max-width: calc(33.333% - 1rem);
+    border-radius: 0.75rem;
+}
+
+.card-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.comments-section {
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 0.75rem;
+    padding: 1rem;
+}
+
+.comment {
+    margin-bottom: 1rem;
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #dee2e6;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.comment-user {
+    font-weight: bold;
+}
+
+.comment-date {
+    font-size: 0.9em;
+    color: #6c757d;
+}
+
+/*--------------------------------------------
+
+/* Layout and spacing */
+.container {
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+.nav-link.active {
+    background-color: #007bff; /* Blue background for active nav item */
+    color: #fff;
+    border-radius: 4px;
+}
+
+.alert {
+    margin-bottom: 20px;
+}
+
+/* Listing styles */
+.listing-detail {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.listing-image {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.listing-info {
+    flex: 2;
+}
+
+.listing-image img {
+    width: 100%;
+    height: auto; /* Keep aspect ratio */
+}
+
+.listing-info h2 {
+    font-size: 2rem;
+    color: #007bff;
+    margin-bottom: 15px;
+}
+
+.description {
+    font-size: 1.2rem;
+    color: #555;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.details-list {
+    font-size: 1.2rem;
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+}
+
+.details-list li {
+    margin-bottom: 10px;
+}
+
+.watchlist-buttons {
+    margin-top: 20px;
+}
+
+.watchlist-buttons form {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    border-color: #ffc107;
+}
+
+.btn-warning:hover {
+    background-color: #e0a800;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Comment section styles */
+.comments-section {
+    border-top: 2px solid #ddd;
+    padding-top: 20px;
+}
+
+.comment {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.comment-header {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.comment-body p {
+    font-size: 1.1rem;
+    margin-top: 5px;
+    color: #333;
+}
+
+/* Highlighting current section in navigation */
+.nav-item.active .nav-link {
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 4px;
+}

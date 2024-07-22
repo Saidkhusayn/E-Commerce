@@ -1,0 +1,41 @@
+{% extends "auctions/layout.html" %}
+{% load static %}
+
+{% block body %}
+<div class="form-class">
+    <form action='categoryBased' method='POST' class="d-flex align-items-center mb-4">
+        {% csrf_token %}
+        <div class="me-2">
+            <select class="form-control" id="category" name="category">
+                {% for option in options %}
+                <option value="{{ option.categoryName }}">{{ option.categoryName }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div>
+            <input class="btn btn-success" type="submit" value="Search">
+        </div>
+    </form>
+</div>
+<h2>Active Listings</h2>
+<div class="all-listings">
+    {% for listing in activeListings %}
+    <div class="listing-container card mb-4">
+        <a href="{% url "listing" slug=listing.slug%}">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img src="{{ listing.url }}" class="card-img" alt="{{ listing.title }}">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ listing.title }}</h5>
+                        <p class="card-text"><strong>Price($):</strong> {{ listing.price }}</p>
+                        <p class="card-text">{{listing.owner}}</p>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

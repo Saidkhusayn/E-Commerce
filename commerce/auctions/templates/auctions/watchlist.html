@@ -1,0 +1,32 @@
+{% extends "auctions/layout.html" %}
+{% load static %}
+
+{% block title %}
+Watchlist
+{% endblock %}
+
+{% block body %}
+<h2>Watchlist</h2>
+<div class="all-listings">
+    {% for listing in listings %}
+    <div class="listing-container card mb-3">
+        <a href="{% url 'listing' slug=listing.slug %}" class="card-link">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img src="{{ listing.url }}" class="card-img" alt="{{ listing.title }}">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ listing.title }}</h5>
+                        <p class="card-text"><strong>Price($):</strong> {{ listing.price }}</p>
+                        <p class="card-text"><small class="text-muted">{{ listing.owner }}</small></p>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
+
+
