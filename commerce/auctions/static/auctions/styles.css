@@ -4,6 +4,11 @@ body {
     color: #333;
 }
 
+ul {
+    list-style-type: none;
+    padding-left: 0; /* Optional: removes default padding */
+}
+
 .header {
     text-align: center;
     padding: 1rem;
@@ -279,7 +284,7 @@ form {
 }
 
 .description {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: #555;
     background-color: #fff;
     padding: 15px;

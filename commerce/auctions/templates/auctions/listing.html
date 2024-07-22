@@ -27,6 +27,7 @@
                 </div>
             {% endfor %}
         {% endif %}
+    {% endif %}
 
         <div class="listing-detail">
             <div class="listing-image">
@@ -47,21 +48,23 @@
                         <button type="button" class="btn btn-secondary btn-lg" disabled>Closed</button>
                     {% endif %}
                 {% endif %}
-                <div class="watchlist-buttons">
-                    {% if inWatchlist %}
-                        <form action="{% url 'removeWatchlist' slug=listing.slug %}" method="POST">
-                            {% csrf_token %}
-                            <input type='hidden' name='removeToWatchlist'>
-                            <input class='btn btn-danger' type='submit' value='Remove from Watchlist'>
-                        </form>
-                    {% else %}
-                        <form action="{% url 'addWatchlist' slug=listing.slug %}" method="POST">
-                            {% csrf_token %}
-                            <input type='hidden' name='addToWatchlist'>
-                            <input class='btn btn-success' type='submit' value='Add to Watchlist'>
-                        </form>
-                    {% endif %}
-                </div>
+                {% if user.is_authenticated %}
+                    <div class="watchlist-buttons">
+                        {% if inWatchlist %}
+                            <form action="{% url 'removeWatchlist' slug=listing.slug %}" method="POST">
+                                {% csrf_token %}
+                                <input type='hidden' name='removeToWatchlist'>
+                                <input class='btn btn-danger' type='submit' value='Remove from Watchlist'>
+                            </form>
+                        {% else %}
+                            <form action="{% url 'addWatchlist' slug=listing.slug %}" method="POST">
+                                {% csrf_token %}
+                                <input type='hidden' name='addToWatchlist'>
+                                <input class='btn btn-success' type='submit' value='Add to Watchlist'>
+                            </form>
+                        {% endif %}
+                    </div>
+                {%endif%}
             </div>
         </div>
 
@@ -108,6 +111,5 @@
                 <input class="btn btn-primary" type="submit" value="Comment">
             </form>
         {% endif %}
-    {% endif %}
 </div>
 {% endblock %}
