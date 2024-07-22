@@ -22,13 +22,19 @@ def categoryBased(request):
     if request.method=="POST":
         category_name = request.POST['category']
         category = Category.objects.get(categoryName=category_name)
-        
-        activeListings = Listing.objects.filter(isActive=True, category=category)
         dropdown = Category.objects.all()
-        return render(request, "auctions/index.html", {
-            "activeListings": activeListings,
-            "options": dropdown
-        })
+        if category_name == "All Listings":
+            activeListings = Listing.objects.filter(isActive=True)
+            return render(request, "auctions/index.html", {
+                "activeListings": activeListings,
+                "options": dropdown
+            })
+        else:
+            activeListings = Listing.objects.filter(isActive=True, category=category)
+            return render(request, "auctions/index.html", {
+                "activeListings": activeListings,
+                "options": dropdown
+            })
 
 
 def login_view(request):
