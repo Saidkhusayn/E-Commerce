@@ -1,14 +1,15 @@
 from django.contrib.auth import authenticate, login, logout
 from django.db import IntegrityError
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.utils.text import slugify
 from django.contrib import messages
+from django.template.loader import render_to_string
+from django.core.paginator import Paginator
 
 from .models import *
-
 
 def index(request):
     activeListings = Listing.objects.filter(isActive=True)
@@ -209,7 +210,6 @@ def bid(request, slug):
                     "highest_bid_object": highest_bid_object,
                 })
 
-        # If bid is valid, save it
         new_bid = Bid(
             listing=listing_name,
             user=request.user,
@@ -228,3 +228,16 @@ def closeAuction(request, slug):
         messages.success(request, 'Congratulations! You closed the auction')
         return redirect('listing', slug=slug)
     
+def load_listings(request):
+    listings = Listing.objects.all() # Replace with your queryset
+    paginator = Paginator(listings, 10)  # 10 listings per page
+
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    if not page_obj:
+        return JsonResponse({'has_more': False, 'html': ''})
+
+    # Render the listings and include a flag to indicate if more data exists
+    html = render_to_string('partials/listings.html', {'listings': page_obj})
+    return JsonResponse({'has_more': page_obj.has_next(), 'html': html})

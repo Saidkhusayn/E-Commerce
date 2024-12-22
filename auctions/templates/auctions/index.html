@@ -19,8 +19,8 @@
         </form>
     </div>
     <h2>Active Listings</h2>
-    <div class="all-listings d-flex justify-content-between">
-        {% for listing in activeListings %}
+    <div id='listing-container' class="all-listings d-flex">
+        {% for listing in activeListings|slice:":9" %}
         <div class="listing-container card mb-4">
             <a href="{% url "listing" slug=listing.slug%}">
                 <div class="row no-gutters">
@@ -39,5 +39,6 @@
         </div>
         {% endfor %}
     </div>
+    <div id="loader" style="text-align: center; margin-top: 20px;">Loading...</div>
 </div>
 {% endblock %}
