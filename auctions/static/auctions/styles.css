@@ -1,19 +1,20 @@
 body {
-    background-color: #f4f4f4; /* Light grey background for the app */
+    background-color: #f4f4f4; 
     font-family: 'Arial', sans-serif;
     color: #333;
+    margin: 0;
 }
 
 ul {
     list-style-type: none;
-    padding-left: 0; /* Optional: removes default padding */
+    padding-left: 0;
 }
 
 .header {
     text-align: center;
     padding: 1rem;
-    background-color: #007bff; /* Header background color */
-    color: #fff; /* Header text color */
+    background-color: #007bff; 
+    color: #fff; 
 }
 
 h1 {
@@ -24,7 +25,7 @@ h1 {
 
 h2 {
     font-size: 2em;
-    color: #007bff; /* Color for headings */
+    color: #007bff; 
     margin-bottom: 1.5rem;
 }
 
@@ -41,17 +42,17 @@ h4 {
 p {
     font-size: 1em;
     line-height: 1.6;
-    color: #495057; /* Darker text color for paragraphs */
+    color: #495057; 
 }
 
 a {
     text-decoration: none;
-    color: #007bff; /* Link color */
+    color: #007bff; 
 }
 
 a:hover {
     text-decoration: none;
-    color: #0056b3; /* Darker link color on hover */
+    color: #0056b3; 
 }
 
 .nav {
@@ -66,11 +67,11 @@ a:hover {
 }
 
 .nav .nav-link:hover {
-    color: #0056b3; /* Darker color for hover */
+    color: #0056b3; 
 }
 
 form {
-    background-color: #ffffff; /* Form background color */
+    background-color: #ffffff; 
     border-radius: 0.75rem;
     padding: 1.5rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -237,9 +238,6 @@ form {
     color: #6c757d;
 }
 
-/*--------------------------------------------
-
-/* Layout and spacing */
 .container {
     margin: 0 auto;
     max-width: 1200px;
@@ -247,7 +245,7 @@ form {
 }
 
 .nav-link.active {
-    background-color: #007bff; /* Blue background for active nav item */
+    background-color: #007bff; 
     color: #fff;
     border-radius: 4px;
 }
@@ -256,7 +254,6 @@ form {
     margin-bottom: 20px;
 }
 
-/* Listing styles */
 .listing-detail {
     display: flex;
     flex-wrap: wrap;
@@ -274,7 +271,8 @@ form {
 
 .listing-image img {
     width: 100%;
-    height: auto; /* Keep aspect ratio */
+    height: 100%; 
+    
 }
 
 .listing-info h2 {
@@ -372,9 +370,13 @@ form {
     color: #333;
 }
 
-/* Highlighting current section in navigation */
 .nav-item.active .nav-link {
     background-color: #007bff;
     color: #fff;
     border-radius: 4px;
+}
+
+.d-inline {
+    padding: 0;
+    background-color: transparent;
 }

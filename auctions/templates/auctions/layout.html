@@ -8,38 +8,42 @@
         <link href="{% static 'auctions/styles.css' %}" rel="stylesheet">
     </head>
     <body>
-        <div class="container">
+        <div class="main">
             <div class="header">
-                <h1>Auctions</h1>
+                <h1>Geek Auctions</h1>
                 <div>
                     {% if user.is_authenticated %}
-                        Signed in as <strong>{{ user.username }}</strong>.
+                        Signed in as <strong >{{ user.username }}</strong>.
                     {% else %}
                         Not signed in.
                     {% endif %}
                 </div>
             </div>
-            <ul class="nav">
-                <li class="nav-item{% if request.resolver_match.url_name == 'index' %} active{% endif %}">
-                    <a class="nav-link" href="{% url 'index' %}">Active Listings</a>
-                </li>
-                <li class="nav-item{% if request.resolver_match.url_name == 'create' %} active{% endif %}">
-                    <a class="nav-link" href="{% url 'create' %}">Create a Listing</a>
-                </li>
+            <ul class="nav d-flex justify-content-around">
+                    <li class="nav-item{% if request.resolver_match.url_name == 'index' %} active{% endif %}">
+                        <a class="nav-link" href="{% url 'index' %}">Active Listings</a>
+                    </li>
+                    <li class="nav-item{% if request.resolver_match.url_name == 'create' %} active{% endif %}">
+                        <a class="nav-link" href="{% url 'create' %}">Create a Listing</a>
+                    </li>
                 {% if user.is_authenticated %}
                     <li class="nav-item{% if request.resolver_match.url_name == 'watchlist' %} active{% endif %}">
                         <a class="nav-link" href="{% url 'watchlist' %}" >Watchlist</a>
                     </li>
-                    <li class="nav-item{% if request.resolver_match.url_name == 'logout' %} active{% endif %}">
-                        <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
-                    </li>
+                    <div class='account'>
+                        <li class="nav-item{% if request.resolver_match.url_name == 'logout' %} active{% endif %}">
+                            <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
+                        </li>
+                    </div>
                 {% else %}
-                    <li class="nav-item{% if request.resolver_match.url_name == 'login' %} active{% endif %}">
-                        <a class="nav-link" href="{% url 'login' %}">Log In</a>
-                    </li>
-                    <li class="nav-item{% if request.resolver_match.url_name == 'register' %} active{% endif %}">
-                        <a class="nav-link" href="{% url 'register' %}">Register</a>
-                    </li>
+                    <div class='account d-flex'>
+                        <li class="nav-item{% if request.resolver_match.url_name == 'login' %} active{% endif %}">
+                            <a class="nav-link" href="{% url 'login' %}">Log In</a>
+                        </li>
+                        <li class="nav-item{% if request.resolver_match.url_name == 'register' %} active{% endif %}">
+                            <a class="nav-link" href="{% url 'register' %}">Register</a>
+                        </li>
+                    </div>
                 {% endif %}
             </ul>
             <hr>

@@ -36,40 +36,43 @@
             <div class="listing-info">
                 <h2>{{ listing.title }}</h2>
                 <p class="description">{{ listing.description }}</p>
-                <h4>Current Price: ${{ lastBid }}</h4>
-                {% if isOwner %}
-                    {% if listing.isActive %}
-                        <form class="mx-3" action="{% url 'closeAuction' slug=listing.slug %}" method="POST">
-                            {% csrf_token %}
-                            <input type='hidden' name='closeAuction'>
-                            <input class='btn btn-warning' type='submit' value='Close'>
-                        </form>
-                    {% else %}
-                        <button type="button" class="btn btn-secondary btn-lg" disabled>Closed</button>
-                    {% endif %}
-                {% endif %}
-                {% if user.is_authenticated %}
-                    <div class="watchlist-buttons">
-                        {% if inWatchlist %}
-                            <form action="{% url 'removeWatchlist' slug=listing.slug %}" method="POST">
-                                {% csrf_token %}
-                                <input type='hidden' name='removeToWatchlist'>
-                                <input class='btn btn-danger' type='submit' value='Remove from Watchlist'>
-                            </form>
-                        {% else %}
-                            <form action="{% url 'addWatchlist' slug=listing.slug %}" method="POST">
-                                {% csrf_token %}
-                                <input type='hidden' name='addToWatchlist'>
-                                <input class='btn btn-success' type='submit' value='Add to Watchlist'>
-                            </form>
+                <div class="action-btns d-flex justify-content-between align-items-center p-3 border rounded">
+                    <h2 class="mb-0">Current Price: ${{ lastBid }}</h2>
+                    <div class="d-flex gap-2">
+                        {% if isOwner %}
+                            {% if listing.isActive %}
+                                <form class="d-inline mr-3" action="{% url 'closeAuction' slug=listing.slug %}" method="POST">
+                                    {% csrf_token %}
+                                    <input type='hidden' name='closeAuction'>
+                                    <button class="btn btn-warning" type="submit">Close</button>
+                                </form>
+                            {% else %}
+                                <button class="btn btn-secondary btn-lg" disabled>Closed</button>
+                            {% endif %}
+                        {% endif %}
+                        {% if user.is_authenticated %}
+                            {% if inWatchlist %}
+                                <form class="d-inline " action="{% url 'removeWatchlist' slug=listing.slug %}" method="POST">
+                                    {% csrf_token %}
+                                    <input type='hidden' name='removeToWatchlist'>
+                                    <button class="btn btn-danger" type="submit">Remove from Watchlist</button>
+                                </form>
+                            {% else %}
+                                <form class="d-inline" action="{% url 'addWatchlist' slug=listing.slug %}" method="POST">
+                                    {% csrf_token %}
+                                    <input type='hidden' name='addToWatchlist'>
+                                    <button class="btn btn-success" type="submit">Add to Watchlist</button>
+                                </form>
+                            {% endif %}
                         {% endif %}
                     </div>
-                {%endif%}
+                </div>
+                
             </div>
         </div>
 
         {% if user.is_authenticated %}
-            <div class="bid-section">
+            <div class="bid-section mb-4">
                 <form action="{% url 'bid' slug=listing.slug %}" method="POST">
                     {% csrf_token %}
                     <div class="form-group">
@@ -86,7 +89,7 @@
             <li>Listed by: <strong>{{ listing.owner }}</strong></li>
             <li>Category: <strong>{{ listing.category }}</strong></li>
         </ul>
-        <div class="comments-section">
+        <div class="comments-section mb-4">
             {% for comment in comments %}
                 <div class="comment">
                     <div class="comment-header">
@@ -98,7 +101,7 @@
                     </div>
                 </div>
             {% empty %}
-                <p>No Comments</p>
+                <p>No comments yet...</p>
             {% endfor %}
         </div>
         {% if user.is_authenticated %}
