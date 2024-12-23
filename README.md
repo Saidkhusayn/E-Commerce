@@ -27,15 +27,17 @@ Mini online auction platform for geeks
 - Comment on listings
 - Categorize listings for better organization
 
-## Installing 
-1. Install dependencies
+## Installation 
+1. Install dependencies:
    `pip install -r requirements.txt`
-2. Apply migrations
+2. Apply migrations:
    `python manage.py migrate`
-3. Run the development server
+3. Run the development server:
    `python manage.py runserver`
 4. Open your browser and navigate to:
    `http://127.0.0.1:8000/`
+## Contributing 
+Contributions are welcome! Please open a pull request.
 
 
 
